@@ -11,7 +11,6 @@ node('docker'){
             checkout scm
             sh "docker build -t $DOCKERHUB_USER/melodi:${tag} ."
         }
-
         stage("Push"){
             sh '''
                 docker login -u $DOCKERHUB_USER -p $DOCKERHUB_PASSWORD
